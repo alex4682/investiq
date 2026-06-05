@@ -11,6 +11,7 @@
 }
 
 .loginBackgroundMain {
+    height: 80%;
     z-index: -1;
     width: 100%;
     position: absolute;
@@ -40,4 +41,10 @@
     color: #52555F;
     margin-left: 400px;
 
+}
+.loginForm {
+    position: absolute;
+    z-index: 1;
+    right:  100px;
+    top: 140px;
 }
