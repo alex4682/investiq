@@ -1,0 +1,49 @@
+.spendsTable {
+    margin-top: 60px;
+    width: 760px;
+    border-collapse: collapse;
+
+    & thead {
+        background-color: #F5F6FB;
+        height: 48px;
+        
+        & tr {
+            & th {
+                font-family: Roboto;
+                font-weight: 700;
+                font-size: 12px;
+                leading-trim: NONE;
+                line-height: 100%;
+                letter-spacing: 2%;
+                vertical-align: middle;
+                text-transform: uppercase;
+                color: #000000;
+                text-align: left;
+                padding-left: 16px;
+                &:last-child {
+                    text-align: center;
+                    padding-right: 16px;
+                }
+                &.spendsDate {
+                    width: 100px;
+                }
+                &.spendsTitle {
+                    width: 300px;
+                }
+                &.spendsCategory {
+                    width: 200px;
+                }
+                &.spendsCost {
+                    width: 160px;
+                }
+            }
+            & th:first-child {
+              border-top-left-radius: 28px;
+            }
+
+            & th:last-child {
+              border-top-right-radius: 28px;
+            }
+        }
+    }
+}

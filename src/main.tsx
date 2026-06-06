@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import "./reset.css";
 import { Provider } from "react-redux";
+import App from "./App.tsx";
 import { store } from "./redux/store";
+import "./reset.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
