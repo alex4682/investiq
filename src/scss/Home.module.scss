@@ -35,6 +35,7 @@
     vertical-align: middle;
     text-transform: uppercase;
     color: #000000;
+    text-align: center;
 }
 
 .balanceContainer {
@@ -94,6 +95,16 @@
     text-align: right;
     color: #52555FB2;
     flex-grow: 1;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    & .investmentsLinkIcon {
+        width: 16px;
+        height: 16px;
+        margin-left: 20px;
+        fill: #52555F !important;
+    }
 
 }
 
@@ -106,6 +117,9 @@
 }
 
 .homeMain {
+    margin-bottom: 50px !important;
+    border-radius: 32px;
+    border-top-left-radius: 0px;
     background-color: #fff;
     width: 1200px;
     margin: 0 auto;
@@ -115,6 +129,7 @@
 }
 
 .menuButton {
+    z-index: -1;
     width: 140px;
     height: 40px;
     border: none;
@@ -151,8 +166,7 @@
 .homeGoods {
     display: flex;
     align-items: center;
-    gap: 20px;
-    justify-content: center;
+    gap: 130px;
 }
 
 .homeDate {
@@ -165,14 +179,24 @@
     vertical-align: middle;
     text-transform: uppercase;
     color: #52555F;
+    display: flex;
+    align-items: center;
+    & .dateIcon{
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+        fill: #52555F;
+    }
 }
 
 .homeGoodsForm {
     display: flex;
-    gap: 20px;
+    gap: 30px;
+
 }
 
 .homeGoodNameInput {
+    padding-left: 21px;
     width: 300px;
     height: 44px;
     border: 2px solid #dcdde3;
@@ -215,6 +239,18 @@
     letter-spacing: 2%;
     vertical-align: middle;
     color: #C7CCDC;
+    text-align: center;
+}
+.formWrap{
+    position: relative;
+}
+.costIcon{
+    position: absolute;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    fill: #52555F;
+    top: 12px;
 }
 
 .menuButtonSubmit {
@@ -252,4 +288,9 @@
     color: #000;
     background-color: #fbfbfbcc;
     border: 2px solid #dcdde3;
+}
+
+.moneyWrap{
+    display: flex;
+    justify-content: space-between;
 }

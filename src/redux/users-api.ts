@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { insertInvestIQRecord } from "./goods-api";
 
 const supabaseUrl =
   (import.meta.env.VITE_SUPABASE_URL as string) ||
@@ -25,6 +26,14 @@ export async function signUpNewUser(
   });
 
   if (error) throw error;
+
+  // id нового користувача
+  const userId = data.user?.id;
+
+  if (userId) {
+    await insertInvestIQRecord(userId);
+  }
+
   return data;
 }
 
