@@ -1,0 +1,129 @@
+.spendsTable thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #F5F6FB;
+}
+
+.spendsTable {
+    margin-top: 60px;
+    width: 760px;
+    border-collapse: collapse;
+    display: block;
+    overflow: auto;
+    height: 400px;
+    &::-webkit-scrollbar{
+        background-color: #F5F6FB;
+        width: 6px;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: #FF751D;
+        border-radius: 15px;
+    }
+    
+    & thead {
+        background-color: #F5F6FB;
+        height: 48px;
+        
+        & tr {
+            padding: 15px;
+            
+            & th {
+                font-family: Roboto;
+                font-weight: 700;
+                font-size: 12px;
+                leading-trim: NONE;
+                line-height: 100%;
+                letter-spacing: 2%;
+                vertical-align: middle;
+                text-transform: uppercase;
+                color: #000000;
+                text-align: left;
+                padding-left: 16px;
+
+                &:last-child {
+                    text-align: center;
+                    padding-right: 16px;
+                }
+
+                &.spendsDate {
+                    width: 150px;
+                }
+
+                &.spendsTitle {
+                    width: 250px;
+                }
+
+                &.spendsCategory {
+                    width: 200px;
+                }
+                
+                &.spendsCost {
+                    width: 160px;
+                }
+            }
+            
+            & th:first-child {
+                border-top-left-radius: 28px;
+            }
+            
+            & th:last-child {
+                border-top-right-radius: 28px;
+            }
+        }
+
+    }
+
+    & tbody {
+        height: 400px !important;
+        overflow-y: auto;
+        border: 2px solid #F5F6FB;
+
+        & tr {
+            height: 40px;
+            border: 2px solid #F5F6FB;
+            padding: 15px;
+
+            & td {
+                padding: 15px;
+                font-family: Roboto;
+                font-weight: 400;
+                font-size: 12px;
+                leading-trim: NONE;
+                line-height: 100%;
+                letter-spacing: 4%;
+                vertical-align: middle;
+                color: #52555F;
+                &:last-child{
+                    color: #E7192E;
+                    display: flex;
+                    gap: 40px;
+                    align-items: center;
+                    &.green{
+                        color: #407946;
+                    }
+                }
+            }
+
+
+
+        }
+    }
+}
+
+
+
+.deleteBtn{
+    width: 32px;
+    height: 32px;
+    background-color: #F5F6FB;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}.delete{
+    width: 16px;
+    height: 16px;
+    fill: #52555F;
+}

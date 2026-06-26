@@ -3,5 +3,294 @@
     z-index: -1;
     width: 100%;
     position: absolute;
+}
 
+
+
+.balance {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 2%;
+    text-align: center;
+    vertical-align: middle;
+    color: #52555FB2;
+}
+
+.balanceInput {
+    width: 125px;
+    height: 45px;
+    border: 2px solid #FFFFFF;
+    border-radius: 16px;
+    background: none;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 2%;
+    text-align: right;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #000000;
+    text-align: center;
+}
+
+.balanceContainer {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    & form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    flex-grow: 30;
+}
+
+.balanceButton {
+    width: 125px;
+    height: 45px;
+    border: none;
+    border-radius: 16px;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 2%;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #fff;
+    border: 2px solid #dcdde3;
+    background: none;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 2%;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #52555FB2;
+
+}
+
+.investmentsLink {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 4%;
+    text-align: right;
+    color: #52555FB2;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    & .investmentsLinkIcon {
+        width: 16px;
+        height: 16px;
+        margin-left: 20px;
+        fill: #52555F !important;
+    }
+
+}
+
+.homeContent {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.homeMain {
+    margin-bottom: 50px !important;
+    border-radius: 32px;
+    border-top-left-radius: 0px;
+    background-color: #fff;
+    width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0px 10px 60px #AAB2C533;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.menuButton {
+    z-index: -1;
+    width: 140px;
+    height: 40px;
+    border: none;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 2%;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #000;
+    background-color: #fbfbfbcc;
+
+    &.active {
+        background-color: #FEFEFE;
+        color: #FF751D;
+    }
+}
+
+.homeMenu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: space-between;
+    top: -60px;
+    left: -20px;
+    position: relative;
+}
+
+.homeGoods {
+    display: flex;
+    align-items: center;
+    gap: 130px;
+}
+
+.homeDate {
+    font-family: Roboto;
+    font-weight: 900;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 4%;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #52555F;
+    display: flex;
+    align-items: center;
+    & .dateIcon{
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+        fill: #52555F;
+    }
+}
+
+.homeGoodsForm {
+    display: flex;
+    gap: 30px;
+
+}
+
+.homeGoodNameInput {
+    padding-left: 21px;
+    width: 300px;
+    height: 44px;
+    border: 2px solid #dcdde3;
+    border-top-left-radius: 16px;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 2%;
+    vertical-align: middle;
+    color: #C7CCDC;
+}
+
+.homeGoodCategoryInput {
+    width: 180px;
+    height: 44px;
+    border: 2px solid #dcdde3;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 2%;
+    vertical-align: middle;
+    color: #C7CCDC;
+}
+
+.homeGoodCostInput {
+    width: 120px;
+    height: 44px;
+    border: 2px solid #dcdde3;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 2%;
+    vertical-align: middle;
+    color: #C7CCDC;
+    text-align: center;
+}
+.formWrap{
+    position: relative;
+}
+.costIcon{
+    position: absolute;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    fill: #52555F;
+    top: 12px;
+}
+
+.menuButtonSubmit {
+    width: 125px;
+    height: 44px;
+    border: none;
+    border-radius: 16px;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 2%;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #FF751D;
+}
+
+.menuButtonClear {
+    width: 125px;
+    height: 44px;
+    border: none;
+    border-radius: 16px;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 2%;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #000;
+    background-color: #fbfbfbcc;
+    border: 2px solid #dcdde3;
+}
+
+.moneyWrap{
+    display: flex;
+    justify-content: space-between;
 }

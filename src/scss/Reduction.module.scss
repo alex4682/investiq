@@ -1,0 +1,58 @@
+.reduction {
+    margin-top: 60px !important;
+
+}
+
+.reductionTitle {
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 12px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 2%;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+
+}
+
+.titleWrap {
+    background-color: #F5F6FB;
+    padding: 15px 77px 15px 77px;
+    margin-bottom: 3px !important;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.reductionList {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 3px;
+
+    
+    & li {
+        &:first-of-type {
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        display: flex;
+        justify-content: space-between;
+        background-color: #F5F6FB;
+        width: 230px;
+        height: 38px;
+        padding: 15px;
+
+        & p {
+            font-family: Roboto;
+            font-weight: 400;
+            font-size: 12px;
+            leading-trim: NONE;
+            line-height: 100%;
+            letter-spacing: 4%;
+            vertical-align: middle;
+            text-transform: uppercase;
+            color: #52555F;
+        }
+    }
+}

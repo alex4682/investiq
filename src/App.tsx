@@ -1,23 +1,22 @@
-import React from 'react';
-import LoginPage from './components/LoginPage';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import {lazy} from 'react';
 
-const LogIn = lazy(() => import('./components/LoginPage'));
-const Home = lazy(()=> import('./components/Home'));
+const LoginPage = lazy(() => import('./components/LoginPage'));
+const Home = lazy(() => import('./components/Home'));
+const Charts = lazy(()=> import('./components/Charts'));
 
 function App() {
-
   return (
-    <>
-      <Router >
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="" element={<LogIn />} />
+          <Route path="/" element={<LoginPage />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/charts" element={<Charts/>}/>
         </Routes>
-      </Router>
-    </>
-  )
+      </Suspense>
+    </Router>
+  );
 }
 
 export default App

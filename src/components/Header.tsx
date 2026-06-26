@@ -1,10 +1,9 @@
-import React from "react";
+import { useState } from "react";
 import styles from "../scss/Header.module.scss";
 import { useDispatch } from "react-redux";
-import { logout } from "../redux/users-slice";
+import { logoutUser } from "../redux/users-slice";
 import { useNavigate } from "react-router-dom";
-import {useState} from "react";
-import type { asyncThunkCreator } from "@reduxjs/toolkit";
+import type { AppDispatch } from "../redux/store";
 
 const Header = ({
   isLogged = false,
@@ -13,9 +12,16 @@ const Header = ({
   isLogged: boolean;
   userName?: string;
 }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const [backdropClass, setBackdropClass] = useState(false);
+
+  const handleLogout = async () => {
+    setBackdropClass(false);
+    await dispatch(logoutUser());
+    navigate("/");
+  };
+
   return (
     <>
       <header className={styles.header}>
@@ -46,14 +52,7 @@ const Header = ({
           <p className={styles.logoutText}>Ви впевнені, що хочете вийти?</p>
           <ul className={styles.logoutButtons}>
             <li>
-              <button
-                className={styles.confirmButton}
-                onClick={() => {
-                  dispatch(logout());
-                  setBackdropClass(false);
-                  navigate("/");
-                }}
-              >
+              <button className={styles.confirmButton} onClick={handleLogout}>
                 Так
               </button>
             </li>
