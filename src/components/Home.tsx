@@ -30,6 +30,7 @@ const Home = () => {
   const [localSpends, setLocalSpends] = useState<
     Array<{ date: string; title: string; category: string; cost: number }>
   >([]);
+  
 
   const mergedRecord = records.length
     ? records.reduce(
