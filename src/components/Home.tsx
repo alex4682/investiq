@@ -15,7 +15,6 @@ import { updateSpendsInvestIQ } from "../redux/goods-api";
 import { updateIncomeInvestIQ } from "../redux/goods-api";
 import { updateBalanceInvestIQ } from "../redux/goods-api";
 
-
 const Home = () => {
   const dispatch = useAppDispatch();
   const { isLoggedIn, loading, userData } = useAppSelector(
@@ -26,12 +25,11 @@ const Home = () => {
   const navigate = useNavigate();
   const [balanceInput, setBalanceInput] = useState("");
   const [moneyChange, setMoneyChange] = useState<0 | 1>(0);
-  const [balance, setBalance] = useState(0);
-  const [localSpends, setLocalSpends] = useState<
+  const [balance] = useState(0);
+  const [localSpends] = useState<
     Array<{ date: string; title: string; category: string; cost: number }>
   >([]);
   
-
   const mergedRecord = records.length
     ? records.reduce(
         (acc, item) => ({
@@ -80,7 +78,7 @@ const Home = () => {
   const handleSpendsForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!userData) return;
+    if (!userData?.id) return;
 
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -99,23 +97,21 @@ const Home = () => {
     };
 
     const updatedSpends = [...(mergedRecord?.costs ?? []), newSpend];
-
     const newBalance = (mergedRecord?.balance ?? 0) - cost;
 
     try {
       await updateSpendsInvestIQ(userData.id, updatedSpends, newBalance);
-
       dispatch(fetchInvestIQByUser(userData.id));
-
       form.reset();
     } catch (err) {
       console.error(err);
     }
   };
+
   const handleIncomeForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!userData) return;
+    if (!userData?.id) return;
 
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -134,14 +130,11 @@ const Home = () => {
     };
 
     const updatedIncome = [...(mergedRecord?.income ?? []), newIncome];
-
     const newBalance = (mergedRecord?.balance ?? 0) + cost;
 
     try {
       await updateIncomeInvestIQ(userData.id, updatedIncome, newBalance);
-
       dispatch(fetchInvestIQByUser(userData.id));
-
       form.reset();
     } catch (err) {
       console.error(err);
@@ -151,36 +144,29 @@ const Home = () => {
   const handleBalanceForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!userData) return;
+    if (!userData?.id) return;
 
     const newBalance = Number(balanceInput);
-
     if (isNaN(newBalance)) return;
 
     try {
       await updateBalanceInvestIQ(userData.id, newBalance);
-
       await dispatch(fetchInvestIQByUser(userData.id));
-
       setBalanceInput("");
     } catch (err) {
       console.error("Balance update error:", err);
     }
   };
+
   return (
     <>
       <Header isLogged={isLoggedIn} userName={UserName} />
       <section className={styles.home}>
-        <img src={img} className={styles.homeBackground} />
+        <img src={img} className={styles.homeBackground} alt="bg" />
         <div className={styles.homeContent}>
           <div className={styles.balanceContainer}>
             <p className={styles.balance}>Баланс:</p>
-            <form
-              action=""
-              onSubmit={(e) => {
-                handleBalanceForm(e);
-              }}
-            >
+            <form action="" onSubmit={handleBalanceForm}>
               <input
                 id="balance"
                 type="number"
@@ -210,9 +196,7 @@ const Home = () => {
                   " " +
                   (moneyChange === 0 ? styles.active : "")
                 }
-                onClick={() => {
-                  setMoneyChange(0);
-                }}
+                onClick={() => setMoneyChange(0)}
               >
                 Витрати
               </button>
@@ -224,9 +208,7 @@ const Home = () => {
                   " " +
                   (moneyChange === 1 ? styles.active : "")
                 }
-                onClick={() => {
-                  setMoneyChange(1);
-                }}
+                onClick={() => setMoneyChange(1)}
               >
                 Дохід
               </button>
@@ -283,11 +265,7 @@ const Home = () => {
                     required
                   />
                   <svg className={styles.costIcon} width="16" height="16">
-                    <use
-                      href={svg + "#icon-calculator"}
-                      width="16"
-                      height="16"
-                    ></use>
+                    <use href={svg + "#icon-calculator"} width="16" height="16"></use>
                   </svg>
                 </div>
                 <button className={styles.menuButtonSubmit} type="submit">
@@ -301,9 +279,7 @@ const Home = () => {
               <form
                 action=""
                 className={styles.homeGoodsForm}
-                onSubmit={(e) => {
-                  handleIncomeForm(e);
-                }}
+                onSubmit={handleIncomeForm}
               >
                 <div className={styles.formWrap}>
                   <input
@@ -328,11 +304,7 @@ const Home = () => {
                     className={styles.homeGoodCostInput}
                   />
                   <svg className={styles.costIcon} width="16" height="16">
-                    <use
-                      href={svg + "#icon-calculator"}
-                      width="16"
-                      height="16"
-                    ></use>
+                    <use href={svg + "#icon-calculator"} width="16" height="16"></use>
                   </svg>
                 </div>
                 <button className={styles.menuButtonSubmit} type="submit">
@@ -358,7 +330,6 @@ const Home = () => {
             <Reduction record={mergedRecord} />
           </div>
         </div>
-        
       </section>
     </>
   );

@@ -1,3 +1,4 @@
+import type { Action } from "@reduxjs/toolkit";
 import {
   getCurrentUser,
   sendMagicLink,
@@ -38,7 +39,7 @@ const mapUser = (user: any): UserData => ({
 });
 
 type UserAction =
-  | AnyAction
+  | Action
   | { type: "user/setLoading"; payload: boolean }
   | { type: "user/setUser"; payload: UserData | null }
   | { type: "user/setError"; payload: string | null }
@@ -51,19 +52,29 @@ export function usersReducer(
 ): AuthState {
   switch (action.type) {
     case "user/setLoading":
-      return { ...state, loading: action.payload };
+      return "payload" in action && action.type === "user/setLoading" 
+        ? { ...state, loading: action.payload as boolean } 
+        : state;
     case "user/setUser":
-      return {
-        ...state,
-        userData: action.payload,
-        isLoggedIn: Boolean(action.payload),
-      };
+      return "payload" in action && action.type === "user/setUser"
+        ? {
+            ...state,
+            userData: action.payload as UserData | null,
+            isLoggedIn: Boolean(action.payload),
+          }
+        : state;
     case "user/setError":
-      return { ...state, authError: action.payload };
+      return "payload" in action && action.type === "user/setError"
+        ? { ...state, authError: action.payload as string | null }
+        : state;
     case "user/setSuccess":
-      return { ...state, authSuccess: action.payload };
+      return "payload" in action && action.type === "user/setSuccess"
+        ? { ...state, authSuccess: action.payload as boolean }
+        : state;
     case "user/setVerifying":
-      return { ...state, verifying: action.payload };
+      return "payload" in action && action.type === "user/setVerifying"
+        ? { ...state, verifying: action.payload as boolean }
+        : state;
     default:
       return state;
   }
